@@ -1,0 +1,262 @@
+/*
+
+amarelo: #ECD078
+laranja: #D95B43
+rosa: #C02942
+roxo: #542437
+verde: #53777A
+*/
+
+html {
+	font-size: 100%;
+}
+
+@media (min-width: 1140px) {
+	html {
+		font-size: 118.75%;
+	}
+}
+
+
+body {
+	font-size: 1em;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: #53777A;
+  text-decoration: underline;
+  text-decoration-skip: ink;
+}
+
+a:hover,
+a:focus {
+  color: #405b5c;
+}
+
+.btn {
+	text-decoration: none !important;
+}
+
+.container {
+  width: 1480px;
+  max-width: 100%;
+  padding: 0 20px;
+}
+
+.navbar {
+	background: #700817;
+	margin-bottom: 20px;
+	box-shadow: 2px 0 3px rgba(0,0,0, .2);
+}
+
+.navbar-brand {
+	text-indent: -989999px;
+	display: inline-block;
+	overflow: hidden;
+	width: 71px;
+	height: 76px;
+	background: url("../imagens/logo_menu.svg");
+	background-repeat: no-repeat;
+}
+
+.navbar .nav-link {
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+}
+
+.dropdown-toggle {
+	color: #fff;
+	text-decoration: none;
+}
+
+.dropdown-toggle:hover,
+.dropdown-toggle:focus {
+	text-decoration: underline;
+	color: #fff;
+}
+
+.dropdown-menu {
+	border-radius: 0 !important;
+	padding: 0.5em 0;
+	left: auto !important;
+	right: 0;
+	width: 150px;
+}
+
+.dropdown-menu li a {
+	display: block;
+	padding: 0.4em 1.5em;
+	color: #333;
+	text-decoration: none;
+}
+
+.dropdown-menu li a:hover,
+.dropdown-menu li a:focus {
+	color: #333;
+	text-decoration: none;
+	background: #eaeaea;
+}
+
+.navbar .nav-link:not(.dropdown-toggle):after {
+	content: " ";
+	display: block;
+	position: absolute;
+	bottom: -8px;
+	left: 0;
+	width: 100%;
+	height: 0;
+	background: #fff;
+	transition: all 120ms ease-out;
+}
+
+.navbar .nav-link:not(.navbar-brand):not(.dropdown-toggle):hover:after,
+.navbar .nav-link:not(.navbar-brand):not(.dropdown-toggle):focus:after {
+	height: 4px;
+}
+
+.footer {
+	background: #700817;
+	padding: 20px;
+	color: #fff;
+	font-size: 0.8em;
+}
+
+.login form,
+.cadastro form {
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+form {
+	max-width: 500px;
+	margin-top: 30px;
+}
+
+.login .control-group,
+.cadastro .control-group {
+	margin-bottom: 10px;
+	
+}
+
+.control-group + .control-group {
+	margin-top: 20px;
+}
+
+.btn {
+	cursor: pointer;
+}
+
+.form-actions {
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+.form-actions p {
+	margin-top: 10px;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.clearfix:after {
+	content: " ";
+	display: table;
+	clear: both;
+	zoom: 1;
+}
+
+.pull-right {
+	float: right;
+}
+
+.pull-left {
+	float: left;
+}
+
+.pagination {
+	display: inline-flex;
+	
+}
+
+.pagination a {
+	text-decoration: none;
+}
+
+.cabecalho {
+	background-color: #222;
+	background-image: url("../imagens/order.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 150px 0 120px;
+	text-align: center;
+	margin-top: -20px;
+	
+}
+
+.cabecalho h2 {
+	max-width: 1000px;
+	display: block;
+	margin: 0 auto;
+	color: #fff;
+	margin-bottom: 30px;
+	line-height: 1.2;
+	
+	font-size: 3.5em;
+}
+
+.cabecalho h3 {
+	max-width: 1000px;
+	display: block;
+	margin: 0 auto;
+	color: #fff;
+	margin-bottom: 100px;
+	line-height: 1.2;
+	font-weight: 400;
+}
+
+.cabecalho .btn {
+	max-width: 100%;
+	margin: 0 auto;
+	color: #222 !important;
+	padding: 1em 2.5em;
+	font-size: 1.5em;
+	border-radius: 0 !important;
+}
+
+.banner-cadastro {
+	padding: 80px 20px;
+	background: #510611;
+	text-align: center;
+}
+
+.banner-cadastro .btn {
+	padding: 1em 2.5em;
+	max-width: 100%;
+	font-size: 1.5em;
+	border-radius: 0 !important;
+}
+
+.beneficios {
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+
+.beneficio-imagem {
+	width: auto;
+	height: 48px;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+.beneficio-texto {
+	padding-right: 20px;
+	margin-top: 30px;
+}

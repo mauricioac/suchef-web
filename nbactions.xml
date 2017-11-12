@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>CUSTOM-Deploy heroku</actionName>
+            <displayName>Deploy heroku</displayName>
+            <goals>
+                <goal>heroku:deploy-war</goal>
+            </goals>
+            <properties>
+                <Env.HEROKU_API_KEY>3a9db0a4-72fc-4bbc-826e-633a1dc78bf9</Env.HEROKU_API_KEY>
+            </properties>
+        </action>
+        <action>
+            <actionName>run</actionName>
+            <packagings>
+                <packaging>war</packaging>
+                <packaging>ear</packaging>
+                <packaging>ejb</packaging>
+            </packagings>
+            <goals>
+                <goal>package</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-Run locally</actionName>
+            <displayName>Run locally</displayName>
+            <goals>
+                <goal>heroku:run-war</goal>
+            </goals>
+        </action>
+    </actions>
