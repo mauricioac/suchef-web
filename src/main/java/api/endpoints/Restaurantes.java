@@ -19,7 +19,7 @@ import dbos.Filial;
 import dbos.Produto;
 import dbos.Usuario;
 
-@Path("restaurantes")
+@Path("/restaurantes")
 public class Restaurantes {
 	
 	@GET
