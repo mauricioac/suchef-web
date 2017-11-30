@@ -154,4 +154,23 @@ public class Produtos {
         return resultado;
     }
 
+  public ArrayList<Produto> getProdutosFilial(int id) throws Exception {
+    ArrayList<Produto> resultado = new ArrayList<Produto>();
+
+    String sql = "SELECT * FROM produtos WHERE filiais_id = ?";
+
+    BD.COMANDO.prepareStatement (sql);
+
+    BD.COMANDO.setInt (1, id);
+
+    MeuResultSet r = (MeuResultSet)BD.COMANDO.executeQuery ();
+
+    while (r.next()) {
+      Produto p = new Produto(r.getInt("id"), r.getInt("filiais_id"), r.getString("ref"),r.getString("nome"), r.getString("descricao"), r.getString("imagem"), r.getFloat("preco"));
+
+      resultado.add(p);
+    }
+    return resultado;
+  }
+
 }

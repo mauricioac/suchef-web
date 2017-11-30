@@ -12,6 +12,7 @@ import com.google.gson.JsonObject;
 import bd.BD;
 import dbos.Usuario;
 import helpers.DateHelper;
+import java.sql.Date;
 import javassist.bytecode.DuplicateMemberException;
 import utils.PasswordGenerator;
 import utils.TokenGenerator;
@@ -28,13 +29,12 @@ public class Cadastro {
 			String email = data.get("email").getAsString();
 			String nome = data.get("nome").getAsString();
 			String cpf = data.get("cpf").getAsString();
-			String dataCadastro = DateHelper.today();
 			String status = "A";
 			String tokenAPI = TokenGenerator.generate();
 			String senha = PasswordGenerator.get_SHA_512_SecurePassword(data.get("senha").getAsString());
 			
 			// String email, String nome, String cpf, String senha, String data_cadastro, String status,String token_api
-			Usuario usuario = new Usuario(email, nome, cpf, senha, dataCadastro, status, tokenAPI);
+			Usuario usuario = new Usuario(email, nome, cpf, senha, status, tokenAPI);
 			
 			if (BD.USUARIOS.cpfCadastrado(cpf)) {
 				throw new DuplicateMemberException("Usuário já existente com este CPF");
@@ -52,7 +52,7 @@ public class Cadastro {
 			return Response.status(422).entity("{\"error\": \"" + de.getMessage() + "\"}").build();
 		} catch (Exception e) {
 			e.printStackTrace();
-			return Response.status(422).entity("{\"error\": \"Erro ao cadastrar usuário\"}").build();
+			return Response.status(500).entity("{\"error\": \"Erro ao cadastrar usuário\"}").build();
 		}
 	}
 }

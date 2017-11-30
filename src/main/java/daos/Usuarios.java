@@ -39,54 +39,39 @@ public class Usuarios {
     {
         boolean retorno = false;
 
-        try
-        {
-            String sql;
+        
+        String sql;
 
-            sql = "SELECT * " +
-                  "FROM usuarios " +
-                  "WHERE cpf LIKE ?";
-                  
-            BD.COMANDO.prepareStatement (sql);
-            
-            BD.COMANDO.setString(1, cpf);
+        sql = "SELECT * " +
+              "FROM usuarios " +
+              "WHERE cpf LIKE ?";
 
-            MeuResultSet resultado = (MeuResultSet)BD.COMANDO.executeQuery ();
+        BD.COMANDO.prepareStatement (sql);
 
-            retorno = resultado.first();
-        } 
-        catch (SQLException erro)
-        {
-            throw new Exception("Erro ao procurar usuário!");
-        }
-        return retorno;
+        BD.COMANDO.setString(1, cpf);
+
+        MeuResultSet resultado = (MeuResultSet)BD.COMANDO.executeQuery ();
+
+        return resultado.first();
     }
 	
 	public boolean emailCadastrado (String email) throws Exception
     {
         boolean retorno = false;
 
-        try
-        {
-            String sql;
+        String sql;
 
-            sql = "SELECT * " +
-                  "FROM usuarios " +
-                  "WHERE email LIKE ?";
-                  
-            BD.COMANDO.prepareStatement (sql);
-            
-            BD.COMANDO.setString(1, email);
+        sql = "SELECT * " +
+              "FROM usuarios " +
+              "WHERE email LIKE ?";
 
-            MeuResultSet resultado = (MeuResultSet)BD.COMANDO.executeQuery ();
+        BD.COMANDO.prepareStatement (sql);
 
-            retorno = resultado.first();
-        } 
-        catch (SQLException erro)
-        {
-            throw new Exception("Erro ao procurar usuário!");
-        }
-        return retorno;
+        BD.COMANDO.setString(1, email);
+
+        MeuResultSet resultado = (MeuResultSet)BD.COMANDO.executeQuery ();
+
+        return resultado.first();
     }
 	
 	public Usuario login (String email, String senha) throws Exception
@@ -116,7 +101,7 @@ public class Usuarios {
                                    resultado.getString ("nome"),
                                    resultado.getString ("cpf"),
                                    resultado.getString ("senha"),
-                                   resultado.getString ("data_cadastro"),
+                                   resultado.getDate   ("data_cadastro"),
                                    resultado.getString ("status"),
                                    resultado.getString ("token_api"));
            return usuario;
@@ -154,7 +139,7 @@ public class Usuarios {
                                    resultado.getString ("nome"),
                                    resultado.getString ("cpf"),
                                    resultado.getString ("senha"),
-                                   resultado.getString ("data_cadastro"),
+                                   resultado.getDate   ("data_cadastro"),
                                    resultado.getString ("status"),
                                    resultado.getString ("token_api"));
            return usuario;
@@ -170,34 +155,25 @@ public class Usuarios {
     {
         if(usuario == null)
             throw new Exception("Usuário não fornecido!");
-        
-        try
-        {
-            String sql;
-
-            sql = "INSERT INTO usuarios " +
-                  "(email, nome, cpf, senha, data_cadastro, status, token_api) " +
-                  "VALUES " +
-                  "(?,?,?,?,?,?,?)";
-            
-            BD.COMANDO.prepareStatement (sql);
-
-            BD.COMANDO.setString   (1, usuario.getEmail());
-            BD.COMANDO.setString   (2, usuario.getNome());
-            BD.COMANDO.setString   (3, usuario.getCpf());
-            BD.COMANDO.setString   (4, usuario.getSenha());
-            BD.COMANDO.setString   (5, usuario.getData_cadastro());
-            BD.COMANDO.setString   (6, usuario.getStatus());
-            BD.COMANDO.setString   (7, usuario.getTokenAPI());
-            
-            BD.COMANDO.executeUpdate ();
-            BD.COMANDO.commit        (); 
        
-        }
-        catch (SQLException erro)
-        {
-            throw new Exception("Erro ao inserir usuário!");
-        }
+        String sql;
+
+        sql = "INSERT INTO usuarios " +
+              "(email, nome, cpf, senha, data_cadastro, status, token_api) " +
+              "VALUES " +
+              "(?,?,?,?,CURRENT_TIMESTAMP,?,?)";
+
+        BD.COMANDO.prepareStatement (sql);
+
+        BD.COMANDO.setString   (1, usuario.getEmail());
+        BD.COMANDO.setString   (2, usuario.getNome());
+        BD.COMANDO.setString   (3, usuario.getCpf());
+        BD.COMANDO.setString   (4, usuario.getSenha());
+        BD.COMANDO.setString   (5, usuario.getStatus());
+        BD.COMANDO.setString   (6, usuario.getTokenAPI());
+
+        BD.COMANDO.executeUpdate ();
+        BD.COMANDO.commit        (); 
     }
 
     public void excluir (int id) throws Exception
@@ -254,7 +230,7 @@ public class Usuarios {
             BD.COMANDO.setString   (2, usuario.getNome());
             BD.COMANDO.setString   (3, usuario.getCpf());
             BD.COMANDO.setString   (4, usuario.getSenha());
-            BD.COMANDO.setString   (5, usuario.getData_cadastro());
+            BD.COMANDO.setDate     (5, usuario.getData_cadastro());
             BD.COMANDO.setString   (6, usuario.getStatus());
             BD.COMANDO.setString   (7, usuario.getTokenAPI());
             BD.COMANDO.setInt      (8, usuario.getId());
