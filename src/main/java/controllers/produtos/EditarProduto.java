@@ -37,6 +37,8 @@ public class EditarProduto extends HttpServlet {
 			response.sendRedirect("/login");
 			return;
 		}
+                
+                request.setAttribute("title", "Editar produto");
 		
 		try {
 			ArrayList<Filial> filiais = BD.FILIAIS.getFiliais(SessionManager.id(request));
@@ -70,6 +72,8 @@ public class EditarProduto extends HttpServlet {
 			response.sendRedirect("/login");
 			return;
 		}
+                
+                request.setAttribute("title", "Editar produto");
 		
 		try {
 			ArrayList<Filial> filiais = BD.FILIAIS.getFiliais(SessionManager.id(request));

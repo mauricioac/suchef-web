@@ -36,6 +36,8 @@ public class ListagemProdutos extends HttpServlet {
 			response.sendRedirect("/login");
 			return;
 		}
+                
+                request.setAttribute("title", "Produtos");
 		
 		try {
 			ArrayList<Produto> produtos = BD.PRODUTOS.getProdutos(SessionManager.id(request));

@@ -35,7 +35,7 @@ public class NovoProduto extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			ArrayList<Filial> filiais = BD.FILIAIS.getFiliais(SessionManager.id(request));
-			
+			request.setAttribute("title", "Adicionar produto");
 			request.setAttribute("filiais", filiais);
 			request.getRequestDispatcher("/produtos/new.jsp").forward(request, response);
 		} catch (Exception e) {
@@ -48,7 +48,9 @@ public class NovoProduto extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
+            request.setAttribute("title", "Adicionar produto");
+            
+            try {
 			ArrayList<Filial> filiais = BD.FILIAIS.getFiliais(SessionManager.id(request));
 			request.setAttribute("filiais", filiais);
 		} catch (Exception e1) {

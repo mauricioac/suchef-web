@@ -43,6 +43,7 @@ public class Cadastro extends HttpServlet {
 		if (SessionManager.isAuthenticated(request)) {
 			response.sendRedirect("/produtos");
 		} else  {
+                    request.setAttribute("title", "Cadastro");
 			request.getRequestDispatcher("/cadastro.jsp").forward(request, response);
 		}
 	}
@@ -51,7 +52,8 @@ public class Cadastro extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
+            request.setAttribute("title", "Cadastro");	
+            try {
 			String nome = request.getParameter("nome");
 			String email = request.getParameter("email");
 			String nome_responsavel = request.getParameter("nome_responsavel");

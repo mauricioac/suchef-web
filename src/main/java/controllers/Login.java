@@ -32,10 +32,11 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (SessionManager.isAuthenticated(request)) {
-			SessionManager.setFlash(request, "VocÃª jÃ¡ estÃ¡ logado no sistema!");
-			response.sendRedirect("/produtos");
+                    SessionManager.setFlash(request, "Você já está logado no sistema!");
+                    response.sendRedirect("/produtos");
 		} else {
-			request.getRequestDispatcher("/login.jsp").forward(request, response);
+                    request.setAttribute("title", "Login");
+                    request.getRequestDispatcher("/login.jsp").forward(request, response);
 		}
 	}
 
@@ -43,7 +44,7 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.setAttribute("title", "Login");
 		
 		try {
 			String email = request.getParameter("email");

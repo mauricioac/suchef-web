@@ -30,14 +30,17 @@ public class NovaFilial extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/filiais/new.jsp").forward(request, response);
+	
+            request.setAttribute("title", "Adicionar filial");
+            request.getRequestDispatcher("/filiais/new.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
+            request.setAttribute("title", "Adicionar filial");
+            try {
 			String nome = request.getParameter("nome");
 			String logradouro = request.getParameter("logradouro");
 			String municipio = request.getParameter("municipio");

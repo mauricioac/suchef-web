@@ -29,6 +29,8 @@ public class Listagem extends HttpServlet {
 			response.sendRedirect("/login");
 			return;
 		}
+                
+                request.setAttribute("title", "Filiais");
 		
 		try {
 			ArrayList<Filial> filiais = BD.FILIAIS.getFiliais(SessionManager.id(request));

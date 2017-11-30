@@ -8,7 +8,7 @@
 
 <link rel="icon" type="image/png" sizes="32x32" href="${pageContext.request.contextPath}/imagens/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/imagens/favicon-16x16.png">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

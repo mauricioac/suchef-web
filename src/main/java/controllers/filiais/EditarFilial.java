@@ -34,6 +34,8 @@ public class EditarFilial extends HttpServlet {
 			response.sendRedirect("/login");
 			return;
 		}
+                
+                request.setAttribute("title", "Editar filial");
 		
 		try {
 			Filial filial = BD.FILIAIS.getFilial(Integer.parseInt(request.getParameter("id")));
@@ -59,6 +61,8 @@ public class EditarFilial extends HttpServlet {
 			response.sendRedirect("/login");
 			return;
 		}
+              
+                request.setAttribute("title", "Editar filial");
 		
 		Filial filial;
 		

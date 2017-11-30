@@ -7,6 +7,9 @@
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
 	  <div class="collapse navbar-collapse" id="navbarNav">
+            <%
+                if (SessionManager.isAuthenticated(request)) {
+            %>
 	    <ul class="navbar-nav mr-auto">
 	      <li class="nav-item">
 	        <a class="nav-link" href="${pageContext.request.contextPath}/">Página inicial</a>
@@ -24,6 +27,7 @@
 	        <a class="nav-link" href="${pageContext.request.contextPath}/promocoes">Promoções</a>
 	      </li>
 	    </ul>
+            <% } %>
 	    <ul class="navbar-nav">
 	      <%
 	        if (SessionManager.isAuthenticated(request)) {
